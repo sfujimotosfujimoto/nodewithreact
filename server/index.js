@@ -6,6 +6,7 @@ const keys = require('./config/keys');
 const app = express();
 
 
+<<<<<<< HEAD
 
 //clientSecret
 passport.use(
@@ -39,3 +40,7 @@ app.get(
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT);
+=======
+app.listen(5000);
+//
+>>>>>>> c8964e6740fc3fbf0c3f6436a7db72c67ab2defa
