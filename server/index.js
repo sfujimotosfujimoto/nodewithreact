@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./models/User'); // this has to be before require services/passport
 require('./services/passport'); //not returning anything
@@ -10,6 +11,8 @@ mongoose.connect(keys.mongoURI);
 
 
 const app = express();
+
+app.use(bodyParser.json());
 
 app.use(
   cookieSession({
@@ -22,6 +25,7 @@ app.use(passport.session());
 
 
 require('./routes/authRoutes')(app);
+require('./routes/billingRoutes')(app);
 // same as
 // const authRoutes = require('./routes/authRoutes')
 // authRoutes(app)
